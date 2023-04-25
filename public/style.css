@@ -1,0 +1,134 @@
+/* Font family */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+/* Body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  background-color: #1b1b1d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+header h1 {
+  display: flex;
+  font-family: 'Poppins';
+  color: white;
+  margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Form styles */
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+} */
+
+form {
+  margin: 0 auto;
+  width: 840px;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+form input,
+button {
+  width: 100%;
+  max-width: 130px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  color: #232323;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 5px 10px rgb(83, 240, 212);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form input {
+  max-width: 500px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  margin-right: 60px;
+}
+
+.button {
+  padding-left: 300px;
+}
+
+/* Result styles */
+.success {
+  color: #ffffff;
+}
+
+.failed {
+  color: #ff0000;
+}
+
+#result h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: -10px;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+#result pre {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  font-weight: 500;
+  box-shadow: 0 10px 20px black;
+  overflow-y: scroll;
+}
+
+form input:focus {
+  outline: none;
+  background-color: #9d9898;
+  box-shadow: 0 10px 20px black;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #2787a0;
+}
+
+a {
+  color: #ffffff;
+}

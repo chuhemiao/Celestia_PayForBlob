@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="celestia, blockchain, fuel,kkdemian" />
+    <title>celestia pfb!</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="apple-mobile-web-app-title" content="celestia" />
+  </head>
+  <body>
+    <header>
+      <h1>Submit a PFB transaction</h1>
+    </header>
+    <form id="form" method="post">
+      <ul>
+        <li>
+          <label for="name">seed:</label>
+          <input
+            type="number"
+            name="seed"
+            placeholder="input seed number"
+            required
+          />
+        </li>
+        <li>
+          <label for="name">namespaceid:</label
+          ><input
+            type="string"
+            name="namespaceid"
+            placeholder="input NamespaceID"
+            required
+          />
+        </li>
+        <li>
+          <label for="name">data:</label
+          ><input
+            type="string"
+            name="message"
+            placeholder="input Message data"
+            required
+          />
+        </li>
+
+        <li class="button">
+          <button id="submit_btn" type="Submit" onclick="waitting()">
+            Submit
+          </button>
+        </li>
+      </ul>
+    </form>
+    <div id="result"></div>
+    <footer style="margin-top: 20px">
+      ©️chuhemiao 2023 |
+      <a href="https://github.com/chuhemiao/Celestia_PayForBlob"> Github </a>
+      <hr />
+      Notice: <br />
+      1. Namespace ID - Random with 8 bytes.<br />
+      2. Message - Write your message and data is in hex-encoded bytes.<br />
+      3. Node IP - IP server of node running on celestia blockchain.<br />
+      4. Fee - The fee to use for the transaction.<br />
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $('#form').submit(function (event) {
+          event.preventDefault();
+          $.ajax({
+            url: '/',
+            method: 'POST',
+            data: $(this).serialize(),
+            success: async function (result) {
+              console.log(result);
+              var success =
+                '<h2 class="success">transaction success:</h2><pre>' +
+                result +
+                '</pre>';
+              $('#result').html(success);
+              await new Promise((r) => setTimeout(r, 3000));
+              document.getElementById('submit_btn').innerHTML = 'Submit';
+            },
+            error: async function (error) {
+              var failed =
+                '<h2 class="failed">trans failed:</h2><pre>' +
+                error.responseText +
+                '</pre>';
+              $('#result').html(failed);
+              await new Promise((r) => setTimeout(r, 3000));
+              document.getElementById('submit_btn').innerHTML = 'Submit';
+            }
+          });
+        });
+      });
+      function waitting() {
+        document.getElementById('submit_btn').innerHTML = 'waitting...';
+      }
+    </script>
+  </body>
+</html>
